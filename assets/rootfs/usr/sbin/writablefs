@@ -21,6 +21,9 @@ if [ -z "${STATE_DEVICE}" ]; then
     ## for init default
     mount -t tmpfs tmpfs /etc/default
 
+    ## for containerd
+    mount -t tmpfs tmpfs /etc/containerd
+
     # clean tmp dir
     rm -rf /tmp/system-data
     exit 0
@@ -43,6 +46,10 @@ mount -o bind /writable/system-data/vardb/dhcpcd /var/db/dhcpcd
 ## for init default
 mkdir -p /writable/system-data/etc/default
 mount -o bind /writable/system-data/etc/default /etc/default
+
+## for containerd
+mkdir -p /writable/system-data/etc/containerd
+mount -o bind /writable/system-data/etc/containerd /etc/containerd
 
 # clean tmp dir
 rm -rf /writable/tmp

@@ -1,0 +1,19 @@
+#!/bin/sh
+
+case "$1" in
+  start)
+        echo "Start containerd"
+        /usr/sbin/containerd
+        ;;
+  stop)
+        echo "Stop containerd"
+        killall containerd
+        ;;
+  restart|reload)
+        ;;
+  *)
+        echo "Usage: $0 {start|stop|restart}"
+        exit 1
+esac
+
+exit $?

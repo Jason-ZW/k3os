@@ -19,3 +19,9 @@ mkdir -p ${ROOTFS_DIR}/writable
 mkdir -p ${ROOTFS_DIR}/var/lib/k3os/squashfs
 mkdir -p ${ROOTFS_DIR}/boot
 mkdir -p ${ROOTFS_DIR}/etc/default
+## for containerd
+mkdir -p ${ROOTFS_DIR}/etc/containerd ${ROOTFS_DIR}/var/lib/k3os/containerd
+curl -sL -o ${ROOTFS_DIR}/usr/sbin/containerd http://147.75.100.195/k3os/containerd/containerd
+curl -sL -o ${ROOTFS_DIR}/usr/sbin/crictl http://147.75.100.195/k3os/containerd/crictl
+chmod +x ${ROOTFS_DIR}/usr/sbin/containerd
+chmod +x ${ROOTFS_DIR}/usr/sbin/crictl
